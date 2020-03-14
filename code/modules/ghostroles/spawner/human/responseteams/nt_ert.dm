@@ -7,6 +7,7 @@
 	outfit = /datum/outfit/admin/ert/nanotrasen
 	mob_name_prefix = "Tpr. "
 	spawnpoints = list("NTERTSpawn")
+	possible_species = list("Human", "Skrell")
 
 /datum/ghostspawner/human/ert/nanotrasen/specialist
 	name = "Nanotrasen Engineering Specialist"
