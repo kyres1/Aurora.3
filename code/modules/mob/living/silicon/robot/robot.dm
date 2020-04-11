@@ -383,14 +383,15 @@
 	if(custom_name)
 		return FALSE
 
-	var/newname
-	newname = sanitizeSafe(input(src, "You are a robot. Enter a name, or leave blank for the default name.", "Name change") as text, MAX_NAME_LEN)
-	if(newname)
-		custom_name = newname
+	spawn(0)
+		var/newname
+		newname = sanitizeSafe(input(src, "You are a robot. Enter a name, or leave blank for the default name.", "Name change") as text, MAX_NAME_LEN)
+		if(newname)
+			custom_name = newname
 
-	updatename()
-	updateicon()
-	SSrecords.reset_manifest()
+		updatename()
+		updateicon()
+		SSrecords.reset_manifest()
 
 // this verb lets cyborgs see the stations manifest
 /mob/living/silicon/robot/verb/cmd_station_manifest()
@@ -973,8 +974,13 @@
 					S.color = null
 				for(var/A in tile)
 					if(istype(A, /obj/effect))
-						if(istype(A, /obj/effect/decal/cleanable) || istype(A, /obj/effect/overlay))
+						if(istype(A, /obj/effect/decal/cleanable))
 							qdel(A)
+						if(istype(A, /obj/effect/overlay))
+							var/obj/effect/overlay/O = A
+							if(O.no_clean)
+								continue
+							qdel(O)
 					else if(istype(A, /obj/item))
 						var/obj/item/cleaned_item = A
 						cleaned_item.clean_blood()

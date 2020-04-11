@@ -108,13 +108,14 @@
 
 /obj/effect/floor_decal/corner/yellow
 	name = "yellow corner"
-	color = COLOR_YELLOW_ALT
+	icon_state = "corner_light"
+	color = COLOR_YELLOW_ENGI
 
 /obj/effect/floor_decal/corner/yellow/diagonal
-	icon_state = "corner_white_diagonal"
+	icon_state = "corner_light_diagonal"
 
 /obj/effect/floor_decal/corner/yellow/full
-	icon_state = "corner_white_full"
+	icon_state = "corner_light_full"
 
 /obj/effect/floor_decal/corner/beige
 	name = "beige corner"
@@ -168,7 +169,7 @@
 
 /obj/effect/floor_decal/corner/orange
 	name = "orange corner"
-	color = COLOR_DARK_ORANGE
+	color = COLOR_ORANGE
 
 /obj/effect/floor_decal/corner/orange/diagonal
 	icon_state = "corner_white_diagonal"
@@ -264,13 +265,14 @@
 
 /obj/effect/floor_decal/corner_wide/yellow
 	name = "yellow corner"
-	color = COLOR_YELLOW_ALT
+	icon_state = "wide_corner_light"
+	color = COLOR_YELLOW_ENGI
 
 /obj/effect/floor_decal/corner_wide/yellow/diagonal
-	icon_state = "wide_corner_diagonal"
+	icon_state = "wide_corner_diagonal_light"
 
 /obj/effect/floor_decal/corner_wide/yellow/full
-	icon_state = "wide_corner_full"
+	icon_state = "wide_corner_full_light"
 
 /obj/effect/floor_decal/corner_wide/beige
 	name = "beige corner"
@@ -324,7 +326,7 @@
 
 /obj/effect/floor_decal/corner_wide/orange
 	name = "orange corner"
-	color = COLOR_DARK_ORANGE
+	color = COLOR_ORANGE
 
 /obj/effect/floor_decal/corner_wide/orange/diagonal
 	icon_state = "wide_corner_diagonal"
@@ -366,6 +368,9 @@
 /obj/effect/floor_decal/spline/plain
 	name = "spline - plain"
 	icon_state = "spline_plain"
+
+/obj/effect/floor_decal/spline/plain/corner
+	icon_state = "spline_plain_corner"
 
 /obj/effect/floor_decal/spline/fancy
 	name = "spline - fancy"
@@ -578,3 +583,6 @@
 
 /obj/effect/floor_decal/sign/c2
 	icon_state = "white_c2"
+
+/obj/effect/floor_decal/sign/srg
+	icon_state = "white_srg"
