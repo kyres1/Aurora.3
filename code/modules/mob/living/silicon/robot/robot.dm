@@ -826,9 +826,9 @@
 
 	if(stat == CONSCIOUS)
 		if(a_intent == I_HELP)
-			add_overlay("eyes-[module_sprites[icontype]]-help")
+			add_overlay(image(icon, "eyes-[module_sprites[icontype]]-help", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 		else
-			add_overlay("eyes-[module_sprites[icontype]]-harm")
+			add_overlay(image(icon, "eyes-[module_sprites[icontype]]-harm", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 
 	if(opened)
 		var/panelprefix = custom_sprite ? src.ckey : "ov"
