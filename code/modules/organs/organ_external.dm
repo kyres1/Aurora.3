@@ -85,6 +85,8 @@
 
 	var/image/hud_damage_image
 
+	var/augment_limit //how many augments you can fit inside this limb
+
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
 
@@ -243,7 +245,7 @@
 	//Continued damage to vital organs can kill you, and robot organs don't count towards total damage so no need to cap them.
 	return (BP_IS_ROBOTIC(src) || brute_dam + burn_dam + additional_damage < max_damage * 4)
 
-/obj/item/organ/external/take_damage(brute, burn, sharp, edge, used_weapon = null, list/forbidden_limbs = list(), damage_flags, var/silent)
+/obj/item/organ/external/take_damage(brute, burn, damage_flags, used_weapon = null, list/forbidden_limbs = list(), var/silent)
 	if((brute <= 0) && (burn <= 0))
 		return 0
 
@@ -251,6 +253,7 @@
 	burn *= burn_mod
 
 	var/laser = (damage_flags & DAM_LASER)
+	var/sharp = (damage_flags & DAM_SHARP)
 	var/blunt = !!(brute && !sharp && !edge)
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
@@ -298,7 +301,7 @@
 
 	// High brute damage or sharp objects may damage internal organs
 	if(length(internal_organs))
-		if(damage_internal_organs(brute, burn, sharp, damage_flags))
+		if(damage_internal_organs(brute, burn, damage_flags))
 			var/brute_div = 2 //We want melee weapons to not be affected by this.
 			if(damage_flags & DAM_BULLET)
 				brute_div = 1.25
@@ -313,15 +316,16 @@
 
 	return update_icon()
 
-/obj/item/organ/external/proc/damage_internal_organs(brute, burn, sharp, damage_flags)
+/obj/item/organ/external/proc/damage_internal_organs(brute, burn, damage_flags)
 	if(!length(internal_organs))
 		return FALSE
 
 	var/damage_amt = brute
 	var/cur_damage = brute_dam
 	var/laser = (damage_flags & DAM_LASER)
+	var/sharp = (damage_flags & DAM_SHARP)
 
-	if(laser)
+	if(laser || BP_IS_ROBOTIC(src))
 		damage_amt += burn
 		cur_damage += burn_dam
 
@@ -330,7 +334,7 @@
 
 	var/organ_damage_threshold = 10
 	if(sharp)
-		organ_damage_threshold *= 0.3
+		organ_damage_threshold *= 0.5
 	if(laser)
 		organ_damage_threshold *= 2
 
@@ -448,13 +452,13 @@ This function completely restores a damaged organ to perfect condition.
 
 
 /obj/item/organ/external/proc/createwound(var/type = CUT, var/damage)
-
-	if(damage <= 0) return
+	if(damage <= 0)
+		return
 
 	//moved this before the open_wound check so that having many small wounds for example doesn't somehow protect you from taking internal damage (because of the return)
 	//Possibly trigger an internal wound, too.
 	var/local_damage = brute_dam + burn_dam + damage
-	if(damage > 15 && type != BURN && local_damage > 30 && !(status & ORGAN_ROBOT))
+	if(damage > 15 && !(type in list(BURN, LASER)) && local_damage > 30 && !(status & ORGAN_ROBOT))
 		var/internal_damage
 		if(prob(damage) && sever_artery())
 			internal_damage = TRUE
@@ -923,12 +927,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 		holder = owner
 	if(!holder)
 		return
-	if (holder.handcuffed && body_part in list(ARM_LEFT, ARM_RIGHT, HAND_LEFT, HAND_RIGHT))
+	if (holder.handcuffed && (body_part in list(ARM_LEFT, ARM_RIGHT, HAND_LEFT, HAND_RIGHT)))
 		holder.visible_message(\
 			"\The [holder.handcuffed.name] falls off of [holder.name].",\
 			"\The [holder.handcuffed.name] falls off you.")
 		holder.drop_from_inventory(holder.handcuffed)
-	if (holder.legcuffed && body_part in list(FOOT_LEFT, FOOT_RIGHT, LEG_LEFT, LEG_RIGHT))
+	if (holder.legcuffed && (body_part in list(FOOT_LEFT, FOOT_RIGHT, LEG_LEFT, LEG_RIGHT)))
 		holder.visible_message(\
 			"\The [holder.legcuffed.name] falls off of [holder.name].",\
 			"\The [holder.legcuffed.name] falls off you.")
@@ -1042,6 +1046,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 			brute_mod = R.brute_mod
 			burn_mod = R.burn_mod
+			robotize_type = company
+			augment_limit += 1	//robotic limbs get one extra augment capacity
 
 	dislocated = -1 //TODO, make robotic limbs a separate type, remove snowflake
 	limb_flags &= ~ORGAN_CAN_BREAK
@@ -1085,7 +1091,14 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return ..() && !is_dislocated() && !(status & ORGAN_TENDON_CUT) && (!can_feel_pain() || get_pain() < pain_disability_threshold) && brute_ratio < 1 && burn_ratio < 1
 
 /obj/item/organ/external/proc/is_malfunctioning()
-	return (BP_IS_ROBOTIC(src) && (brute_ratio + burn_ratio) >= 0.3 && prob(brute_dam + burn_dam))
+	if(BP_IS_ROBOTIC(src) && (brute_ratio + burn_ratio) >= 0.3 && prob(brute_dam + burn_dam))
+		return TRUE
+	if(robotize_type)
+		var/datum/robolimb/R = all_robolimbs[robotize_type]
+		if(R.malfunctioning_check(owner))
+			return TRUE
+	else
+		return FALSE
 
 /obj/item/organ/external/proc/embed(var/obj/item/W, var/silent = 0, var/supplied_message)
 	if(!owner || loc != owner)
@@ -1333,6 +1346,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return
 	var/last_pain = pain
 	if(owner)
+		amount *= owner.species.pain_mod
 		amount -= (owner.chem_effects[CE_PAINKILLER]/3)
 		if(amount <= 0)
 			return
