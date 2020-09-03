@@ -17,21 +17,26 @@
 /obj/item/clothing/under/rank/cargo
 	name = "quartermaster's jumpsuit"
 	desc = "It's a jumpsuit worn by the quartermaster. It's specially designed to prevent back injuries caused by pushing paper."
-	icon_state = "qm"
-	item_state = "lb_suit"
-	worn_state = "qm"
+	icon_state = "cargo_qm"
+	item_state = "cargo_qm"
+	icon = 'icons/clothing/under/uniforms/cargo_qm.dmi'
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/cargo
 	name = "cargo technician's jumpsuit"
 	desc = "The future of cargo tech apparel: long, stuffy slacks. We never said it was a bright future."
 	icon_state = "cargo"
-	item_state = "lb_suit"
-	worn_state = "cargo"
+	item_state = "cargo"
+	icon = 'icons/clothing/under/uniforms/cargo.dmi'
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/cargo/alt
 	desc = "Shooooorts! They're comfy and easy to wear!"
 	icon_state = "cargo_alt"
-	worn_state = "cargo_alt"
+	item_state = "cargo_alt"
+	icon = 'icons/clothing/under/uniforms/cargo_alt.dmi'
+	contained_sprite = TRUE
+
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/under/rank/chaplain
@@ -72,9 +77,10 @@
 /obj/item/clothing/under/rank/hydroponics
 	desc = "It's a jumpsuit designed to protect against minor plant-related hazards."
 	name = "botanist's jumpsuit"
-	icon_state = "hydroponics"
-	item_state = "g_suit"
-	worn_state = "hydroponics"
+	icon_state = "hydro"
+	item_state = "hydro"
+	icon = 'icons/clothing/under/uniforms/service_hydro.dmi'
+	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 
 /obj/item/clothing/under/rank/liaison
@@ -88,8 +94,9 @@
 	desc = "It's the official uniform of the station's janitor. It has minor protection from biohazards."
 	name = "janitor's jumpsuit"
 	icon_state = "janitor"
-	worn_state = "janitor"
 	item_state = "janitor"
+	icon = 'icons/clothing/under/uniforms/service_janitor.dmi'
+	contained_sprite = TRUE
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 
 /obj/item/clothing/under/lawyer
@@ -137,9 +144,10 @@
 /obj/item/clothing/under/rank/miner
 	desc = "It's a snappy miner's jumpsuit, sans overalls and caked with dirt."
 	name = "shaft miner's jumpsuit"
-	icon_state = "miner"
-	item_state = "lb_suit"
-	worn_state = "miner"
+	icon_state = "cargo_miner"
+	item_state = "cargo_miner"
+	icon = 'icons/clothing/under/uniforms/cargo_miner.dmi'
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/hephaestus
 	name = "Hephaestus Industries engineer uniform"

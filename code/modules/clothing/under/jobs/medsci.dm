@@ -100,8 +100,9 @@
 	desc = "It's a jumpsuit worn by those with the experience to be \"Chief Medical Officer\". It provides minor biological protection."
 	name = "chief medical officer's jumpsuit"
 	icon_state = "cmo"
-	item_state = "w_suit"
-	worn_state = "cmo"
+	item_state = "cmo"
+	icon = 'icons/clothing/under/uniforms/cmo.dmi'
+	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 
@@ -189,15 +190,16 @@
 	desc = "A basic white jumpsuit. It has turqouise markings that denote the wearer as a psychiatrist."
 	name = "psychiatrist's jumpsuit"
 	icon_state = "psych"
-	item_state = "w_suit"
-	worn_state = "psych"
+	item_state = "psych"
+	icon = 'icons/clothing/under/uniforms/med_psych.dmi'
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/biochemist
 	desc = "Made of a special fiber that gives increased protection against hazards."
 	name = "chemist's jumpsuit"
 	icon_state = "chemistry"
 	item_state = "chemistry"
-	icon = 'icons/clothing/under/uniforms/chemistry.dmi'
+	icon = 'icons/clothing/under/uniforms/med_chemistry.dmi'
 	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
