@@ -79,8 +79,9 @@
 	desc = "It's made of a special fiber that gives special protection against biohazards. It has a pharmacist rank stripe on it."
 	name = "pharmacist's jumpsuit"
 	icon_state = "chemistry"
-	item_state = "w_suit"
-	worn_state = "chemistry"
+	item_state = "chemistry"
+	icon = 'icons/clothing/under/uniforms/med_chemistry.dmi'
+	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 
@@ -154,29 +155,33 @@
 	name = "medical scrubs"
 	desc = "It's made of a special fiber that provides minor protection against biohazards. This one is in baby blue."
 	icon_state = "scrubsblue"
-	item_state = "b_suit"
-	worn_state = "scrubsblue"
+	item_state = "scrubsblue"
+	icon = 'icons/clothing/under/uniforms/scrubsblue.dmi'
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/medical/green
 	name = "medical scrubs"
 	desc = "It's made of a special fiber that provides minor protection against biohazards. This one is in dark green."
 	icon_state = "scrubsgreen"
-	item_state = "g_suit"
-	worn_state = "scrubsgreen"
+	item_state = "scrubsgreen"
+	icon = 'icons/clothing/under/uniforms/scrubsgreen.dmi'
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/medical/purple
 	name = "medical scrubs"
 	desc = "It's made of a special fiber that provides minor protection against biohazards. This one is in deep purple."
 	icon_state = "scrubspurple"
-	item_state = "p_suit"
-	worn_state = "scrubspurple"
+	item_state = "scrubspurple"
+	icon = 'icons/clothing/under/uniforms/scrubspurple.dmi'
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/medical/black
 	name = "medical scrubs"
 	desc = "It's made of a special fiber that provides minor protection against biohazards. This one is in black."
 	icon_state = "scrubsblack"
-	item_state = "bl_suit"
-	worn_state = "scrubsblack"
+	item_state = "scrubsblack"
+	icon = 'icons/clothing/under/uniforms/scrubsblack.dmi'
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/medical/emt
 	name = "first responder jumpsuit"

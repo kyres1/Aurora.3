@@ -144,8 +144,8 @@
 /obj/item/clothing/under/rank/miner
 	desc = "It's a snappy miner's jumpsuit, sans overalls and caked with dirt."
 	name = "shaft miner's jumpsuit"
-	icon_state = "cargo_miner"
-	item_state = "cargo_miner"
+	icon_state = "miner"
+	item_state = "miner"
 	icon = 'icons/clothing/under/uniforms/cargo_miner.dmi'
 	contained_sprite = TRUE
 

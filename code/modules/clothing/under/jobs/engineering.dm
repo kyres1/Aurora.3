@@ -12,8 +12,8 @@
 /obj/item/clothing/under/rank/atmospheric_technician
 	name = "atmospheric technician's jumpsuit"
 	desc = "It's a jumpsuit worn by atmospheric technicians."
-	icon_state = "engine_atmos"
-	item_state = "engine_atmos"
+	icon_state = "atmos"
+	item_state = "atmos"
 	icon = 'icons/clothing/under/uniforms/eng_atmos.dmi'
 	contained_sprite = TRUE
 	siemens_coefficient = 0.75
