@@ -156,7 +156,7 @@
 	desc = "It's made of a special fiber that provides minor protection against biohazards. This one is in baby blue."
 	icon_state = "scrubsblue"
 	item_state = "scrubsblue"
-	icon = 'icons/clothing/under/uniforms/scrubsblue.dmi'
+	icon = 'icons/clothing/under/uniforms/med_scrubs.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/medical/green
@@ -164,7 +164,7 @@
 	desc = "It's made of a special fiber that provides minor protection against biohazards. This one is in dark green."
 	icon_state = "scrubsgreen"
 	item_state = "scrubsgreen"
-	icon = 'icons/clothing/under/uniforms/scrubsgreen.dmi'
+	icon = 'icons/clothing/under/uniforms/med_scrubs.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/medical/purple
@@ -172,7 +172,7 @@
 	desc = "It's made of a special fiber that provides minor protection against biohazards. This one is in deep purple."
 	icon_state = "scrubspurple"
 	item_state = "scrubspurple"
-	icon = 'icons/clothing/under/uniforms/scrubspurple.dmi'
+	icon = 'icons/clothing/under/uniforms/med_scrubs.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/medical/black
@@ -180,7 +180,7 @@
 	desc = "It's made of a special fiber that provides minor protection against biohazards. This one is in black."
 	icon_state = "scrubsblack"
 	item_state = "scrubsblack"
-	icon = 'icons/clothing/under/uniforms/scrubsblack.dmi'
+	icon = 'icons/clothing/under/uniforms/med_scrubs.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/medical/emt
