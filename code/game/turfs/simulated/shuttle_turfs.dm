@@ -150,6 +150,12 @@
 	smooth = null
 	canSmoothWith = null
 
+/turf/simulated/wall/shuttle/scc
+	icon = 'icons/turf/smooth/unique_ship/scc/hull.dmi'
+
+/turf/simulated/wall/shuttle/scc/cardinal
+	smooth = SMOOTH_MORE
+
 //--Unique Shuttles--//
 
 /turf/simulated/wall/shuttle/unique
@@ -371,7 +377,7 @@
 	icon = 'icons/turf/shuttles_unique/arrivals_shuttle.dmi'
 	icon_state = "6,2"
 
-//arrivals shuttle
+//research shuttle
 
 /turf/simulated/wall/shuttle/unique/research
 	icon = 'icons/turf/shuttles_unique/aurora_research_shuttle.dmi'
@@ -399,6 +405,36 @@
 	icon = 'icons/turf/shuttles_unique/distress_shuttle.dmi'
 	icon_state = "6,2"
 
+//--Unique Structures--//
+
+/obj/structure/shuttle_part/unique_structure/scc
+	icon_state = "null"
+
+//scc structures
+/obj/structure/shuttle_part/unique_structure/scc/wing/small
+	icon = 'icons/turf/shuttles_unique/unique_ship/scc/wings/small.dmi'
+
+/obj/structure/shuttle_part/unique_structure/scc/wing/large_north_left
+	icon = 'icons/turf/shuttles_unique/unique_ship/scc/wings/large_north_left.dmi'
+
+/obj/structure/shuttle_part/unique_structure/scc/wing/large_north_right
+	icon = 'icons/turf/shuttles_unique/unique_ship/scc/wings/large_north_right.dmi'
+
+/obj/structure/shuttle_part/unique_structure/scc/wing/med_north_left
+	icon = 'icons/turf/shuttles_unique/unique_ship/scc/wings/med_north_left.dmi'
+
+/obj/structure/shuttle_part/unique_structure/scc/wing/med_north_right
+	icon = 'icons/turf/shuttles_unique/unique_ship/scc/wings/med_north_right.dmi'
+
+/obj/structure/shuttle_part/unique_structure/scc/engines/small_north
+	icon = 'icons/turf/shuttles_unique/unique_ship/scc/engines/small_north.dmi'
+
+/obj/structure/shuttle_part/unique_structure/scc/engines/med_north
+	icon = 'icons/turf/shuttles_unique/unique_ship/scc/engines/med_north.dmi'
+
+/obj/structure/window/shuttle/unique/scc
+	icon = 'icons/turf/shuttles_uniquescc/cockpits/small_north.dmi'
+	icon_state = "null"
 
 //--Floors--//
 
